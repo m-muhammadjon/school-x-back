@@ -97,7 +97,7 @@ UNFOLD = {
                         "link": reverse_lazy("admin:main_content_changelist"),
                     },
                 ],
-            }
+            },
         ],
     },
 }

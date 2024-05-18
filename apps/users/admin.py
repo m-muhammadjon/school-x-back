@@ -14,13 +14,28 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
     change_password_form = AdminPasswordChangeForm
     fieldsets = (
         (None, {"fields": ("username", "password")}),
-        ("Personal info", {"fields": ("first_name", "last_name", "email",)}),
+        (
+            "Personal info",
+            {
+                "fields": (
+                    "first_name",
+                    "last_name",
+                    "email",
+                )
+            },
+        ),
         (
             "Permissions",
             {"fields": ("is_active", "is_staff", "is_superuser", "groups", "user_permissions")},
         ),
         ("Important dates", {"fields": ("last_login", "date_joined")}),
     )
-    list_display = ("id", "username", "email", "first_name", "last_name",)
+    list_display = (
+        "id",
+        "username",
+        "email",
+        "first_name",
+        "last_name",
+    )
     list_display_links = ("id", "username")
     readonly_fields = ("last_login", "date_joined", "created_at", "updated_at")
