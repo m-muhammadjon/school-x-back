@@ -2,11 +2,11 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 
 from apps.main import serializers
-from apps.main.models import Subject, Topic, Question, Content
+from apps.main.models import Content, Question, Subject, Topic
 
 
 class SubjectListView(ListAPIView):
-    queryset = Subject.objects.all()
+    queryset = Subject.objects.all().order_by("order", "created_at")
     serializer_class = serializers.SubjectSerializer
 
 
@@ -16,7 +16,7 @@ class SubjectRetrieveView(RetrieveAPIView):
 
 
 class TopicListView(ListAPIView):
-    queryset = Topic.objects.all()
+    queryset = Topic.objects.all().order_by("order", "created_at")
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ("subject",)
     serializer_class = serializers.TopicSerializer
@@ -28,7 +28,7 @@ class TopicRetrieveView(RetrieveAPIView):
 
 
 class QuestionListView(ListAPIView):
-    queryset = Question.objects.all()
+    queryset = Question.objects.all().order_by("order", "created_at")
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ("topic",)
     serializer_class = serializers.QuestionSerializer
@@ -40,7 +40,7 @@ class QuestionRetrieveView(RetrieveAPIView):
 
 
 class ContentListView(ListAPIView):
-    queryset = Content.objects.all()
+    queryset = Content.objects.all().order_by("order", "created_at")
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ("topic",)
     serializer_class = serializers.ContentSerializer

@@ -11,6 +11,8 @@ class SubjectSerializer(serializers.ModelSerializer):
             "title",
             "photo",
             "photo_webp",
+            "updated_at",
+            "created_at",
         )
 
 
@@ -24,6 +26,8 @@ class TopicSerializer(serializers.ModelSerializer):
             "description",
             "photo",
             "photo_webp",
+            "updated_at",
+            "created_at",
         )
 
 
@@ -60,4 +64,6 @@ class ContentSerializer(serializers.ModelSerializer):
             "photo_webp",
             "three_d_url",
             "three_d_file",
+            "updated_at",
+            "created_at",
         )
