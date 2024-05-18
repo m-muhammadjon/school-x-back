@@ -21,6 +21,7 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
                     "first_name",
                     "last_name",
                     "email",
+                    "coin",
                 )
             },
         ),

@@ -1,6 +1,7 @@
 from django.utils.crypto import get_random_string
 from rest_framework import status
-from rest_framework.generics import GenericAPIView
+from rest_framework.generics import GenericAPIView, RetrieveAPIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 
@@ -29,3 +30,11 @@ class AuthView(GenericAPIView):
             },
             status=status.HTTP_200_OK,
         )
+
+
+class UserRetrieveAPIView(RetrieveAPIView):
+    serializer_class = serializers.UserSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def get_object(self):
+        return self.request.user

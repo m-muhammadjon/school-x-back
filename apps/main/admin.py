@@ -66,3 +66,16 @@ class ContentAdmin(ModelAdmin):
     list_display = ("id", "topic", "order")
     list_display_links = ("id", "topic")
     list_editable = ("order",)
+
+
+@admin.register(models.UserTestProgress)
+class UserTestProgressAdmin(ModelAdmin):
+    list_display = ("id", "user", "topic", "is_completed")
+    list_display_links = ("id", "user")
+
+
+@admin.register(models.UserQuestionAnswer)
+class UserQuestionAnswerAdmin(ModelAdmin):
+    list_display = ("id", "user", "question", "answer")
+    list_display_links = ("id", "user")
+    list_filter = ("user", "question__topic")

@@ -46,6 +46,7 @@ CUSTOM_APPS = ["apps.common", "apps.users", "apps.main"]
 
 THIRD_PARTY_APPS = [
     "rest_framework",
+    "django_filters",
     "drf_yasg",
     "corsheaders",
     "modeltranslation",

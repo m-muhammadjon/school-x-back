@@ -96,6 +96,16 @@ UNFOLD = {
                         "icon": "upload_file",
                         "link": reverse_lazy("admin:main_content_changelist"),
                     },
+                    {
+                        "title": _("User test progress"),
+                        "icon": "badge",
+                        "link": reverse_lazy("admin:main_usertestprogress_changelist"),
+                    },
+                    {
+                        "title": _("User question answers"),
+                        "icon": "person_check",
+                        "link": reverse_lazy("admin:main_userquestionanswer_changelist"),
+                    },
                 ],
             },
         ],

@@ -12,4 +12,11 @@ urlpatterns = [
     path("questions/", views.QuestionListView.as_view(), name="question-list"),
     path("contents/", views.ContentListView.as_view(), name="content-list"),
     path("contents/<int:pk>/", views.ContentRetrieveView.as_view(), name="content-retrieve"),
+    path("topics/<int:topic_id>/user-test-progress/", views.UserTestProgressView.as_view(), name="user-test-progress"),
+    path(
+        "topics/<int:topic_id>/user-test-progress/<str:status>/",
+        views.UserTestProgressStartEndView.as_view(),
+        name="user-test-progress-start-end",
+    ),
+    path("submit-question-answer/", views.UserQuestionAnswerSubmitView.as_view(), name="submit-question-answer"),
 ]
