@@ -72,6 +72,7 @@ class Content(TimeStampedModel):
     photo = models.ImageField(_("Photo"), upload_to="content_photos", blank=True, null=True)
     photo_webp = ResizedImageField("Photo .webp", upload_to="content_photos", blank=True, null=True)
     three_d_url = models.URLField(_("3D URL"), blank=True, null=True)
+    three_d_file = models.FileField(_("3D File"), upload_to="content_3d", blank=True, null=True)
     order = models.IntegerField(_("Order"), default=0)
 
     class Meta:

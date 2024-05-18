@@ -19,7 +19,7 @@ class TopicInline(StackedInline):
 
 class ContentInline(StackedInline):
     model = models.Content
-    fields = ("text", "photo", "photo_webp", "three_d_url", "order")
+    fields = ("text", "photo", "photo_webp", "three_d_url", "three_d_file", "order")
     extra = 0
     show_change_link = True
 

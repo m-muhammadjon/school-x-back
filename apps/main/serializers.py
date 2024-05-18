@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from apps.main.models import Subject, Topic, Question, QuestionAnswer, Content
+from apps.main.models import Content, Question, QuestionAnswer, Subject, Topic
 
 
 class SubjectSerializer(serializers.ModelSerializer):
@@ -59,4 +59,5 @@ class ContentSerializer(serializers.ModelSerializer):
             "photo",
             "photo_webp",
             "three_d_url",
+            "three_d_file",
         )
