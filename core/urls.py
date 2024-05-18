@@ -1,13 +1,14 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 
 from .schema import swagger_urlpatterns
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/v1/", include("apps.main.urls", namespace="main")),
+    path("api/v1/main/", include("apps.main.urls", namespace="main")),
+    path("api/v1/users/", include("apps.users.urls", namespace="users")),
 ]
 
 urlpatterns += swagger_urlpatterns
