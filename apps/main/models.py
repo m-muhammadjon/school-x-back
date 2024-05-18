@@ -21,7 +21,7 @@ class Subject(TimeStampedModel):
 
 
 class Topic(TimeStampedModel):
-    subject = models.ForeignKey(Subject, verbose_name=_("Subject"), on_delete=models.PROTECT)
+    subject = models.ForeignKey(Subject, verbose_name=_("Subject"), on_delete=models.PROTECT, related_name="topics")
     title = models.CharField(_("Title"), max_length=255)
     description = models.TextField(_("Description"))
     photo = models.ImageField(_("Photo"), upload_to="topic_photos", blank=True, null=True)
@@ -38,7 +38,7 @@ class Topic(TimeStampedModel):
 
 
 class Question(TimeStampedModel):
-    topic = models.ForeignKey(Topic, verbose_name=_("Topic"), on_delete=models.PROTECT)
+    topic = models.ForeignKey(Topic, verbose_name=_("Topic"), on_delete=models.PROTECT, related_name="questions")
     text = models.TextField(_("Text"))
     order = models.IntegerField(_("Order"), default=0)
 
@@ -52,7 +52,7 @@ class Question(TimeStampedModel):
 
 
 class QuestionAnswer(TimeStampedModel):
-    question = models.ForeignKey(Question, verbose_name=_("Question"), on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, verbose_name=_("Question"), on_delete=models.CASCADE, related_name="answers")
     text = models.TextField(_("Text"))
     is_correct = models.BooleanField(_("Is correct"), default=False)
     order = models.IntegerField(_("Order"), default=0)
@@ -67,7 +67,7 @@ class QuestionAnswer(TimeStampedModel):
 
 
 class Content(TimeStampedModel):
-    topic = models.ForeignKey(Topic, verbose_name=_("Topic"), on_delete=models.PROTECT)
+    topic = models.ForeignKey(Topic, verbose_name=_("Topic"), on_delete=models.PROTECT, related_name="contents")
     text = models.TextField(_("Text"))
     photo = models.ImageField(_("Photo"), upload_to="content_photos", blank=True, null=True)
     photo_webp = ResizedImageField("Photo .webp", upload_to="content_photos", blank=True, null=True)

@@ -14,24 +14,28 @@ class TopicInline(StackedInline):
         "order",
     )
     extra = 0
+    show_change_link = True
 
 
 class ContentInline(StackedInline):
     model = models.Content
     fields = ("text", "photo", "photo_webp", "three_d_url", "order")
     extra = 0
+    show_change_link = True
 
 
 class QuestionInline(StackedInline):
     model = models.Question
     fields = ("text", "order")
     extra = 0
+    show_change_link = True
 
 
 class QuestionAnswerInline(TabularInline):
     model = models.QuestionAnswer
     fields = ("text", "is_correct", "order")
     extra = 0
+    show_change_link = True
 
 
 @admin.register(models.Subject)
