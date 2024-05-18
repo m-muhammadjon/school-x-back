@@ -13,7 +13,7 @@ USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 CSRF_COOKIE_SECURE = True
-CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = ["https://school-x.json-translator.uz"]
 
 ###################################################################
 # CORS
