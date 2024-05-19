@@ -68,6 +68,7 @@ class QuestionAnswer(TimeStampedModel):
 
 class Content(TimeStampedModel):
     topic = models.ForeignKey(Topic, verbose_name=_("Topic"), on_delete=models.PROTECT, related_name="contents")
+    title = models.CharField(_("Title"), max_length=255, null=True, blank=True)
     text = models.TextField(_("Text"))
     photo = models.ImageField(_("Photo"), upload_to="content_photos", blank=True, null=True)
     photo_webp = ResizedImageField("Photo .webp", upload_to="content_photos", blank=True, null=True)

@@ -19,7 +19,7 @@ class TopicInline(StackedInline):
 
 class ContentInline(StackedInline):
     model = models.Content
-    fields = ("text", "photo", "photo_webp", "three_d_url", "three_d_file", "order")
+    fields = ("title", "text", "photo", "photo_webp", "three_d_url", "three_d_file", "order")
     extra = 0
     show_change_link = True
 
@@ -63,7 +63,7 @@ class QuestionAdmin(ModelAdmin):
 
 @admin.register(models.Content)
 class ContentAdmin(ModelAdmin):
-    list_display = ("id", "topic", "order")
+    list_display = ("id", "topic", "title", "order")
     list_display_links = ("id", "topic")
     list_editable = ("order",)
 

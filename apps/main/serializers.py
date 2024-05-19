@@ -74,6 +74,7 @@ class ContentSerializer(serializers.ModelSerializer):
         fields = (
             "id",
             "topic",
+            "title",
             "text",
             "photo",
             "photo_webp",
